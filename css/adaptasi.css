@@ -1,126 +1,159 @@
-min-width: 0;
-    margin: 0;
-    padding: 0;
-    overflow-x: auto;
-    overflow-y: hidden;
-    flex-wrap: nowrap;
-    white-space: nowrap;
-    scrollbar-width: thin;
-    -webkit-overflow-scrolling: touch;
+  border-color: var(--forest);
 }
 
-.topbar nav a {
-    display: inline-flex;
-    flex: 0 0 auto;
-    align-items: center;
-    padding: 9px 12px;
-    border-radius: 999px;
-    color: #50645a;
-    text-decoration: none;
-    font-size: 0.86rem;
-    font-weight: 700;
-    white-space: nowrap;
+.page-nav-link.next span,.page-nav-link.next strong {
+  color: #fff;
 }
 
-.topbar nav a:hover,
-.topbar nav a.active {
-    background: var(--forest);
-    color: #fff;
+.page-nav-link:hover:not(.disabled) {
+  transform: translateY(-2px);
 }
 
-/* Tombol garis tiga disembunyikan pada desktop */
-.menu-toggle {
-    display: none;
-    border: 0;
-    background: transparent;
-    color: var(--forest);
-    font-size: 28px;
-    line-height: 1;
-    padding: 6px 8px;
-    cursor: pointer;
+.page-nav-link.disabled {
+  opacity: .45;
+  box-shadow: none;
 }
 
-.menu-toggle:focus-visible {
-    outline: 2px solid var(--orange);
-    outline-offset: 3px;
-    border-radius: 5px;
+@media (max-width:560px) {
+  .page-navigation {
+    padding: 0 18px 34px;
+    gap: 10px;
+  }
+  .page-nav-link {
+    min-width: 0;
+    flex: 1;
+    padding: 12px;
+  }
+  .page-nav-link span {
+    font-size: .7rem;
+  }
+  .page-nav-link strong {
+    font-size: .9rem;
+  }
 }
 
-@media (max-width: 900px) {
-    .topbar {
-        gap: 12px;
-        padding: 10px 14px;
-    }
+/* 6. Fitur interaktif dan akordeon */
 
-    .topbar .brand img {
-        width: 38px;
-        height: 38px;
-    }
-
-    .topbar nav {
-        justify-content: flex-start;
-        gap: 4px;
-    }
-
-    .topbar nav a {
-        padding: 8px 10px;
-        font-size: 0.8rem;
-    }
+.interactive-feature {
+  max-width: 1184px;
+  margin: 28px auto 54px;
+  padding: clamp(22px,4vw,38px);
+  background: #eef2e7;
+  border: 1px solid #d9e3d2;
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
 }
 
-/* Menu navigasi pada HP */
-@media (max-width: 700px) {
-    .topbar {
-        flex-wrap: wrap;
-        justify-content: space-between;
-        gap: 8px;
-        padding: 9px 12px;
-    }
+.interactive-feature:after {
+  content: "";
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  border: 24px solid rgba(85,120,91,.08);
+  border-radius: 50%;
+  right: -55px;
+  top: -60px;
+  pointer-events: none;
+}
 
-    .topbar .brand {
-        min-width: 0;
-    }
+.feature-intro {
+  max-width: 720px;
+  color: var(--muted);
+  margin-bottom: 22px;
+}
 
-    .topbar .brand img {
-        width: 34px;
-        height: 34px;
-    }
+.journey-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  background: var(--paper);
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  text-decoration: none;
+  transition: transform .18s ease,border-color .18s ease;
+  min-height: 190px;
+}
 
-    .menu-toggle {
-        display: block;
-        margin-left: auto;
-        flex: 0 0 auto;
-    }
+.journey-card:hover,.journey-card:focus-visible {
+  transform: translateY(-4px);
+  border-color: var(--moss);
+  outline-offset: 3px;
+}
 
-    .topbar nav {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        flex-direction: column;
-        align-items: stretch;
-        justify-content: flex-start;
-        gap: 5px;
-        margin: 0;
-        padding: 12px 16px 16px;
-        background: var(--paper);
-        border-bottom: 1px solid var(--line);
-        box-shadow: var(--shadow);
-        overflow: visible;
-        white-space: normal;
-    }
+.journey-card>span {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--forest);
+  color: #fff;
+  font-weight: 800;
+  font-size: .8rem;
+}
 
-    .topbar.menu-open nav {
-        display: flex;
-    }
+.journey-card h3 {
+  color: var(--forest);
+  margin: .35em 0;
+}
 
-    .topbar nav a {
-        display: block;
-        width: 100%;
-        padding: 10px 14px;
-        font-size: 0.9rem;
-        white-space: normal;
-        border-radius: 7px;
-    }
+.journey-card p {
+  color: var(--muted);
+  margin: 0 0 8px;
+}
+
+.journey-card b {
+  margin-top: auto;
+  font-size: .88rem;
+  color: var(--moss);
+}
+
+.accordion-grid {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.info-accordion {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 0 18px;
+  align-self: start;
+  transition: border-color .18s ease;
+}
+
+.info-accordion[open] {
+  border-color: var(--moss);
+  box-shadow: 0 8px 24px rgba(25,60,43,.05);
+}
+
+.info-accordion summary {
+  cursor: pointer;
+  list-style: none;
+  font-weight: 800;
+  padding: 17px 25px 17px 0;
+  position: relative;
+  color: var(--forest);
+}
+
+.info-accordion summary::-webkit-details-marker {
+  display: none;
+}
+
+.info-accordion summary:after {
+  content: "+";
+  position: absolute;
+  right: 0;
+  top: 14px;
+  font-size: 1.3rem;
+  color: var(--moss);
+}
+
+.info-accordion[open] summary:after {
+  content: "−";
 }
