@@ -923,6 +923,9 @@ footer .footer-tagline {
 
 /* 10. Navigasi utama: sticky dan horizontal di semua ukuran layar */
 
+
+/* 10. Navigasi utama: responsif untuk desktop dan perangkat seluler */
+
 .topbar {
   position: sticky;
   top: 0;
@@ -987,42 +990,7 @@ footer .footer-tagline {
   color: #fff;
 }
 
-@media (max-width: 900px) {
-  .topbar {
-    gap: 12px;
-    padding: 10px 14px;
-  }
-  .topbar .brand img {
-    width: 38px;
-    height: 38px;
-  }
-  .topbar nav {
-    justify-content: flex-start;
-    gap: 4px;
-  }
-  .topbar nav a {
-    padding: 8px 10px;
-    font-size: 0.8rem;
-  }
-}
-
-@media (max-width: 560px) {
-  .topbar {
-    gap: 10px;
-    padding: 9px 12px;
-  }
-  .topbar .brand img {
-    width: 34px;
-    height: 34px;
-  }
-  .topbar nav {
-    gap: 3px;
-  }
-  .topbar nav a {
-    padding: 7px 9px;
-    font-size: 0.76rem;
-  }
-/* 11. Menu responsif untuk perangkat seluler */
+/* Tombol menu garis tiga */
 .menu-toggle {
   display: none;
   border: 0;
@@ -1040,9 +1008,30 @@ footer .footer-tagline {
   border-radius: 5px;
 }
 
+@media (max-width: 900px) {
+  .topbar {
+    gap: 12px;
+    padding: 10px 14px;
+  }
+
+  .topbar .brand img {
+    width: 38px;
+    height: 38px;
+  }
+
+  .topbar nav {
+    justify-content: flex-start;
+    gap: 4px;
+  }
+
+  .topbar nav a {
+    padding: 8px 10px;
+    font-size: 0.8rem;
+  }
+}
+
 @media (max-width: 700px) {
   .topbar {
-    position: sticky;
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 8px;
@@ -1050,6 +1039,11 @@ footer .footer-tagline {
 
   .topbar .brand {
     min-width: 0;
+  }
+
+  .topbar .brand img {
+    width: 34px;
+    height: 34px;
   }
 
   .menu-toggle {
@@ -1090,3 +1084,4 @@ footer .footer-tagline {
     border-radius: 7px;
   }
 }
+
